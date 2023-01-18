@@ -12,7 +12,7 @@ class Login extends GetView<LoginController> {
       body: Center(
         child: InkWell(
           child: Card(
-            margin: const EdgeInsets.symmetric(vertical: 250, horizontal: 600),
+            margin: const EdgeInsets.symmetric(vertical: 200, horizontal: 600),
             child: Padding(
               padding: const EdgeInsets.all(5),
               child: Container(

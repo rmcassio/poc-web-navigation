@@ -7,7 +7,7 @@ import 'package:poc_web_navigation/signup.dart';
 import 'package:poc_web_navigation/signup_binding.dart';
 
 abstract class Routes {
-  static const HOME = '/';
+  static const HOME = '/home';
   static const LOGIN = '/login';
   static const SIGNUP = '/signup';
 }
