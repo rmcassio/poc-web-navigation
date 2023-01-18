@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:poc_web_navigation/home.dart';
+import 'package:poc_web_navigation/home_binding.dart';
 import 'package:poc_web_navigation/login.dart';
 import 'package:poc_web_navigation/login_binding.dart';
 import 'package:poc_web_navigation/signup.dart';
@@ -25,10 +26,6 @@ class AppRouterDelegate extends GetDelegate {
 abstract class AppPages {
   static final pages = [
     GetPage(
-      name: Routes.HOME,
-      page: () => Home(),
-    ),
-    GetPage(
       name: Routes.LOGIN,
       page: () => Login(),
       binding: LoginBinding(),
@@ -37,6 +34,11 @@ abstract class AppPages {
       name: Routes.SIGNUP,
       page: () => Signup(),
       binding: SignupBinding(),
+    ),
+    GetPage(
+      name: Routes.HOME,
+      page: () => Home(),
+      binding: HomeBinding(),
     ),
   ];
 }
