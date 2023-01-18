@@ -61,10 +61,10 @@ class Home extends GetView<HomeController> {
                   ),
                 ],
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               ElevatedButton(onPressed: () => controller.savePerson(context), child: Text('Salvar')),
-              SizedBox(height: 10),
-              TextButton(onPressed: () {}, child: Text('Ver Pessoas'))
+              const SizedBox(height: 10),
+              TextButton(onPressed: () => controller.seePersons(), child: Text('Ver Pessoas'))
             ],
           ),
         ),

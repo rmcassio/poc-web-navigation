@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hive/hive.dart';
 import 'package:poc_web_navigation/person_model.dart';
+import 'package:poc_web_navigation/route.dart';
 
 class HomeController extends GetxController {
   late TextEditingController nameController;
@@ -28,7 +29,7 @@ class HomeController extends GetxController {
 
       final box = await Hive.openBox('person');
 
-      await box.add(person);
+      await box.put('person', person);
 
       showDialog(
         context: context,
@@ -51,5 +52,9 @@ class HomeController extends GetxController {
         },
       );
     }
+  }
+
+  void seePersons() {
+    Get.rootDelegate.toNamed(Routes.PERSONS);
   }
 }

@@ -4,6 +4,8 @@ import 'package:poc_web_navigation/home.dart';
 import 'package:poc_web_navigation/home_binding.dart';
 import 'package:poc_web_navigation/login.dart';
 import 'package:poc_web_navigation/login_binding.dart';
+import 'package:poc_web_navigation/persons.dart';
+import 'package:poc_web_navigation/persons_binding.dart';
 import 'package:poc_web_navigation/signup.dart';
 import 'package:poc_web_navigation/signup_binding.dart';
 
@@ -11,6 +13,7 @@ abstract class Routes {
   static const HOME = '/home';
   static const LOGIN = '/login';
   static const SIGNUP = '/signup';
+  static const PERSONS = '/person';
 }
 
 class AppRouterDelegate extends GetDelegate {
@@ -39,6 +42,11 @@ abstract class AppPages {
       name: Routes.HOME,
       page: () => Home(),
       binding: HomeBinding(),
+    ),
+    GetPage(
+      name: Routes.PERSONS,
+      page: () => Persons(),
+      binding: PersonsBinding(),
     ),
   ];
 }
