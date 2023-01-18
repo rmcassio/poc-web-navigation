@@ -11,27 +11,30 @@ class Login extends GetView<LoginController> {
     return Scaffold(
       body: Center(
         child: InkWell(
-          child: Card(
-            margin: const EdgeInsets.symmetric(vertical: 200, horizontal: 600),
-            child: Padding(
-              padding: const EdgeInsets.all(5),
-              child: Container(
-                padding: const EdgeInsets.all(12),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    const Text('LOGIN'),
-                    TextFormField(
-                      controller: controller.nameController,
-                    ),
-                    TextFormField(
-                      controller: controller.pwdController,
-                    ),
-                    const SizedBox(height: 20),
-                    ElevatedButton(onPressed: () => controller.login(context), child: const Text('Entrar')),
-                    const SizedBox(height: 20),
-                    TextButton(onPressed: () => controller.signUp(), child: const Text('Cadastre-se'))
-                  ],
+          child: SizedBox(
+            height: 400,
+            width: 400,
+            child: Card(
+              child: Padding(
+                padding: const EdgeInsets.all(5),
+                child: Container(
+                  padding: const EdgeInsets.all(12),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      const Text('LOGIN'),
+                      TextFormField(
+                        controller: controller.nameController,
+                      ),
+                      TextFormField(
+                        controller: controller.pwdController,
+                      ),
+                      const SizedBox(height: 20),
+                      ElevatedButton(onPressed: () => controller.login(context), child: const Text('Entrar')),
+                      const SizedBox(height: 20),
+                      TextButton(onPressed: () => controller.signUp(), child: const Text('Cadastre-se'))
+                    ],
+                  ),
                 ),
               ),
             ),

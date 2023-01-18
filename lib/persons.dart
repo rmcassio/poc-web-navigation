@@ -9,60 +9,63 @@ class Persons extends GetView<PersonsController> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: Card(
-          margin: EdgeInsets.symmetric(vertical: 200, horizontal: 400),
-          child: Obx(
-            () => ListView.builder(
-              itemCount: controller.persons.length,
-              itemBuilder: (context, index) {
-                return Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    const Text('PESSOAS'),
-                    SizedBox(height: 20),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        const SizedBox(
-                          width: 150,
-                          child: Text('Nome: '),
-                        ),
-                        SizedBox(
-                          width: 150,
-                          child: Text(controller.persons.elementAt(index).name),
-                        ),
-                      ],
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        const SizedBox(
-                          width: 150,
-                          child: Text('Número: '),
-                        ),
-                        SizedBox(
-                          width: 150,
-                          child: Text(controller.persons.elementAt(index).number),
-                        ),
-                      ],
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        const SizedBox(
-                          width: 150,
-                          child: Text('E a cidade: '),
-                        ),
-                        SizedBox(
-                          width: 150,
-                          child: Text(controller.persons.elementAt(index).city),
-                        ),
-                      ],
-                    ),
-                  ],
-                );
-              },
+        child: SizedBox(
+          height: 400,
+          width: 400,
+          child: Card(
+            child: Obx(
+              () => ListView.builder(
+                itemCount: controller.persons.length,
+                itemBuilder: (context, index) {
+                  return Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      const Text('PESSOAS'),
+                      SizedBox(height: 20),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          const SizedBox(
+                            width: 150,
+                            child: Text('Nome: '),
+                          ),
+                          SizedBox(
+                            width: 150,
+                            child: Text(controller.persons.elementAt(index).name),
+                          ),
+                        ],
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          const SizedBox(
+                            width: 150,
+                            child: Text('Número: '),
+                          ),
+                          SizedBox(
+                            width: 150,
+                            child: Text(controller.persons.elementAt(index).number),
+                          ),
+                        ],
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          const SizedBox(
+                            width: 150,
+                            child: Text('E a cidade: '),
+                          ),
+                          SizedBox(
+                            width: 150,
+                            child: Text(controller.persons.elementAt(index).city),
+                          ),
+                        ],
+                      ),
+                    ],
+                  );
+                },
+              ),
             ),
           ),
         ),
