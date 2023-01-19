@@ -5,21 +5,28 @@ import 'package:get/get.dart';
 import 'package:poc_web_navigation/person_model.dart';
 import 'package:poc_web_navigation/route.dart';
 import 'package:poc_web_navigation/shared_preferences_utils.dart';
-import 'package:poc_web_navigation/system_cache.dart';
 
 class HomeController extends GetxController {
   late TextEditingController nameController;
   late TextEditingController numberController;
   late TextEditingController cityController;
-  late List<PersonModel> persons;
+  final List<PersonModel> persons = [];
 
   @override
   void onInit() {
     nameController = TextEditingController();
     numberController = TextEditingController();
     cityController = TextEditingController();
-    persons = SystemCache.personsCache ?? [];
     super.onInit();
+  }
+
+  @override
+  void onReady() {
+    final personsJson = SharedPreferencesUtils.getString('persons') ?? '';
+    if (personsJson.isNotEmpty) {
+      final json = jsonDecode(SharedPreferencesUtils.getString('persons')!);
+      persons.addAll(PersonModel.fromListJson(json: json));
+    }
   }
 
   void savePerson(BuildContext context) async {
@@ -33,8 +40,6 @@ class HomeController extends GetxController {
       persons.add(person);
 
       SharedPreferencesUtils.setString('persons', jsonEncode(persons));
-
-      SystemCache.personsCache = persons;
 
       showDialog(
         context: context,

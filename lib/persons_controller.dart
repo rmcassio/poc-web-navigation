@@ -8,10 +8,8 @@ class PersonsController extends GetxController {
   final persons = <PersonModel>[].obs;
 
   @override
-  void onReady() async { 
-    
-       
-    final json = jsonDecode(SharedPreferencesUtils.getString('persons'));
+  void onReady() async {
+    final json = jsonDecode(SharedPreferencesUtils.getString('persons')!);
 
     persons.addAll(PersonModel.fromListJson(json: json));
 
