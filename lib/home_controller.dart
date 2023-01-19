@@ -1,10 +1,10 @@
-import 'dart:io';
+import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:hive/hive.dart';
 import 'package:poc_web_navigation/person_model.dart';
 import 'package:poc_web_navigation/route.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class HomeController extends GetxController {
   late TextEditingController nameController;
@@ -19,6 +19,11 @@ class HomeController extends GetxController {
     super.onInit();
   }
 
+  storePerson(Map<String, dynamic> person) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    await prefs.setString('person', json.encode(person));
+  }
+
   void savePerson(BuildContext context) async {
     if (nameController.text.isNotEmpty && numberController.text.isNotEmpty && cityController.text.isNotEmpty) {
       final person = PersonModel(
@@ -27,9 +32,11 @@ class HomeController extends GetxController {
         city: cityController.text,
       );
 
-      final box = await Hive.openBox('person');
+      storePerson(person.toJson());
 
-      await box.put('person', person);
+      // final box = await Hive.openBox('person');
+
+      // await box.put('person', person);
 
       showDialog(
         context: context,

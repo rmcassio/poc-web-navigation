@@ -1,14 +1,8 @@
-import 'package:hive/hive.dart';
+import 'dart:core';
 
-@HiveType(typeId: 0)
-class PersonModel extends HiveObject {
-  @HiveField(0)
+class PersonModel {
   final String name;
-
-  @HiveField(1)
   final String number;
-
-  @HiveField(2)
   final String city;
 
   PersonModel({
@@ -16,25 +10,20 @@ class PersonModel extends HiveObject {
     required this.number,
     required this.city,
   });
-}
 
-class PersonModelAdapter extends TypeAdapter<PersonModel> {
-  @override
-  final typeId = 0;
-
-  @override
-  PersonModel read(BinaryReader reader) {
+  factory PersonModel.fromJson({required Map<dynamic, dynamic> json}) {
     return PersonModel(
-      name: reader.read(),
-      city: reader.read(),
-      number: reader.read(),
+      name: json['name'],
+      number: json['number'],
+      city: json['city'],
     );
   }
 
-  @override
-  void write(BinaryWriter writer, PersonModel obj) {
-    writer.write(obj.name);
-    writer.write(obj.city);
-    writer.write(obj.number);
+  Map<String, dynamic> toJson() {
+    return {
+      'name': name,
+      'number': number,
+      'city': city,
+    };
   }
 }
