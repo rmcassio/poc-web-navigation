@@ -4,24 +4,22 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:poc_web_navigation/person_model.dart';
 import 'package:poc_web_navigation/route.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+import 'package:poc_web_navigation/shared_preferences_utils.dart';
+import 'package:poc_web_navigation/system_cache.dart';
 
 class HomeController extends GetxController {
   late TextEditingController nameController;
   late TextEditingController numberController;
   late TextEditingController cityController;
+  late List<PersonModel> persons;
 
   @override
   void onInit() {
     nameController = TextEditingController();
     numberController = TextEditingController();
     cityController = TextEditingController();
+    persons = SystemCache.personsCache ?? [];
     super.onInit();
-  }
-
-  storePerson(Map<String, dynamic> person) async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    await prefs.setString('person', json.encode(person));
   }
 
   void savePerson(BuildContext context) async {
@@ -32,11 +30,11 @@ class HomeController extends GetxController {
         city: cityController.text,
       );
 
-      storePerson(person.toJson());
+      persons.add(person);
 
-      // final box = await Hive.openBox('person');
+      SharedPreferencesUtils.setString('persons', jsonEncode(persons));
 
-      // await box.put('person', person);
+      SystemCache.personsCache = persons;
 
       showDialog(
         context: context,

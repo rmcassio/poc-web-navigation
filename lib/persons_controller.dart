@@ -2,21 +2,18 @@ import 'dart:convert';
 
 import 'package:get/get.dart';
 import 'package:poc_web_navigation/person_model.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+import 'package:poc_web_navigation/shared_preferences_utils.dart';
 
 class PersonsController extends GetxController {
   final persons = <PersonModel>[].obs;
 
   @override
-  void onReady() async {
-    // final box = await Hive.openBox('person');
-    // persons.add(box.get('person'));
+  void onReady() async { 
+    
+       
+    final json = jsonDecode(SharedPreferencesUtils.getString('persons'));
 
-    final sharedUser = await SharedPreferences.getInstance();
-    Map personMap = jsonDecode(sharedUser.getString('person')!);
-    final person = PersonModel.fromJson(json: personMap);
-
-    persons.add(person);
+    persons.addAll(PersonModel.fromListJson(json: json));
 
     persons.refresh();
     super.onReady();
