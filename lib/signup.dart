@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:poc_web_navigation/route.dart';
 import 'package:poc_web_navigation/signup_controller.dart';
 
 class Signup extends GetView<SignupController> {

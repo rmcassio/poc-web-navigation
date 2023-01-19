@@ -30,22 +30,22 @@ abstract class AppPages {
   static final pages = [
     GetPage(
       name: Routes.LOGIN,
-      page: () => Login(),
+      page: () => const Login(),
       binding: LoginBinding(),
     ),
     GetPage(
       name: Routes.SIGNUP,
-      page: () => Signup(),
+      page: () => const Signup(),
       binding: SignupBinding(),
     ),
     GetPage(
       name: Routes.HOME,
-      page: () => Home(),
+      page: () => const Home(),
       binding: HomeBinding(),
     ),
     GetPage(
       name: Routes.PERSONS,
-      page: () => Persons(),
+      page: () => const Persons(),
       binding: PersonsBinding(),
     ),
   ];

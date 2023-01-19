@@ -17,7 +17,7 @@ class Home extends GetView<HomeController> {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Text('CRIAR PESSOA'),
+                const Text('CRIAR PESSOA'),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -64,9 +64,9 @@ class Home extends GetView<HomeController> {
                   ],
                 ),
                 const SizedBox(height: 20),
-                ElevatedButton(onPressed: () => controller.savePerson(context), child: Text('Salvar')),
+                ElevatedButton(onPressed: () => controller.savePerson(context), child: const Text('Salvar')),
                 const SizedBox(height: 10),
-                TextButton(onPressed: () => controller.seePersons(), child: Text('Ver Pessoas'))
+                TextButton(onPressed: () => controller.seePersons(), child: const Text('Ver Pessoas'))
               ],
             ),
           ),

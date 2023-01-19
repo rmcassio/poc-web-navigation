@@ -22,8 +22,8 @@ class SignupController extends GetxController {
         context: context,
         builder: (context) {
           return AlertDialog(
-            title: Text('Ok!'),
-            content: Text('Usuário cadastrado!'),
+            title: const Text('Ok!'),
+            content: const Text('Usuário cadastrado!'),
             actions: [
               TextButton(
                 onPressed: () {
@@ -31,7 +31,7 @@ class SignupController extends GetxController {
                   pwdController.clear();
                   nameController.clear();
                 },
-                child: Text('Ok'),
+                child: const Text('Ok'),
               ),
             ],
           );
@@ -42,14 +42,14 @@ class SignupController extends GetxController {
         context: context,
         builder: (context) {
           return AlertDialog(
-            title: Text('Atenção'),
-            content: Text('Preencha os campos.'),
+            title: const Text('Atenção'),
+            content: const Text('Preencha os campos.'),
             actions: [
               TextButton(
                 onPressed: () {
                   Navigator.pop(context);
                 },
-                child: Text('Ok'),
+                child: const Text('Ok'),
               ),
             ],
           );

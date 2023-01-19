@@ -35,8 +35,8 @@ class HomeController extends GetxController {
         context: context,
         builder: (context) {
           return AlertDialog(
-            title: Text('Ok!'),
-            content: Text('Pessoa criada!'),
+            title: const Text('Ok!'),
+            content: const Text('Pessoa criada!'),
             actions: [
               TextButton(
                 onPressed: () {
@@ -45,7 +45,7 @@ class HomeController extends GetxController {
                   nameController.clear();
                   cityController.clear();
                 },
-                child: Text('Ok'),
+                child: const Text('Ok'),
               ),
             ],
           );

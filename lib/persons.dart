@@ -22,7 +22,7 @@ class Persons extends GetView<PersonsController> {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       const Text('PESSOAS'),
-                      SizedBox(height: 20),
+                      const SizedBox(height: 20),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:poc_web_navigation/login_controller.dart';
-import 'package:poc_web_navigation/route.dart';
 
 class Login extends GetView<LoginController> {
   const Login({Key? key}) : super(key: key);
